@@ -1,0 +1,125 @@
+% nice AMS math paper template from Steven Miller at Williams
+% original can be downloaded at
+% https://web.williams.edu/Mathematics/sjmiller/public_html/math/LaTexMathematica/papertemplate.tex
+
+\usepackage[margin=1in]{geometry}
+\usepackage[foot]{amsaddr}
+\usepackage[utf8]{inputenc}
+% \usepackage[english]{babel}
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{
+  mathtools,
+  booktabs,
+  braket,
+  caption,
+  epsfig,
+  etoolbox,
+  float,
+  hyperref,
+  latexsym,
+  lipsum,
+  mathrsfs,
+  setspace,
+  subcaption,
+  url,
+  graphicx,
+  xcolor
+}
+
+% caption packages
+\usepackage{caption, subcaption}
+
+\makeatletter
+\def\@setthanks{\vspace{-\baselineskip}\def\thanks##1{\@par##1\@addpunct.}\thankses}
+\makeatother
+
+
+\usepackage{lscape}
+\newcommand{\bland}{\begin{landscape}}
+\newcommand{\eland}{\end{landscape}}
+
+
+% Disable indentation
+\setlength{\parindent}{0pt}
+% increase spacing between paragraphs
+\setlength{\parskip}{\baselineskip}
+
+\newcommand{\bburl}[1]{\textcolor{blue}{\url{#1}}}
+
+\definecolor{maroon}{rgb}{0.5, 0.0, 0.0}
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Apoorva Lal},
+             pdfkeywords = {},
+            colorlinks=true,
+            citecolor=maroon,
+            urlcolor=blue,
+            linkcolor=blue,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+
+
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+\newcommand{\blue}[1]{\textcolor{blue}{(\bf{#1})}}
+\newcommand{\burl}[1]{\textcolor{blue}{\url{#1}}}
+\newcommand{\emaillink}[1]{\textcolor{blue}{\href{mailto:#1}{#1}}}
+\newcommand{\fix}[1]{\textcolor{red}{\textbf{ (#1)\normalsize}}}
+\newcommand{\fixed}[1]{\textcolor{green}{~\\ \textbf{#1\normalsize}}\\}
+
+\renewcommand{\theequation}{\thesection.\arabic{equation}}
+\numberwithin{equation}{section}
+
+% % optional left align section markers
+% \makeatletter
+% \def\sectionC{\@startsection{section}{1}%
+%   \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+%   {\normalfont\scshape\bfseries}}% NEW
+% \makeatother
+
+% % optional left align section markers
+\makeatletter
+% \vspace*{-34pt}
+\def\section{\@startsection{section}{1}%
+      \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+      {\normalfont\Large\bfseries\centering }}
+% define new section with boldface + left align
+
+\def\sectionL{\@startsection{section}{1}%
+      \z@{.7\linespacing\@plus\linespacing}{.5\linespacing}%
+      {\normalfont\Large\bfseries}}% NEW
+\makeatother
+
+\patchcmd{\subsection}{\bfseries}{\bfseries\large}{}{}
+\patchcmd{\subsubsection}{\itshape}{\bfseries}{}{}
+
+\makeatletter
+\def\paragraph{\@startsection{paragraph}{4}%
+  \z@\z@{-\fontdimen2\font}%
+  {\sffamily \bfseries }}
+\makeatother
+
+% \titleformat{\paragraph}[runin]
+% {\bfseries\scshape}{\theparagraph}{1em}{}
+
+% math packages in self-contained file
+
+\input{math_shortcuts.tex}
+
+% this fixes incompatibility between todonotes and amsart [classic latex]
+\makeatletter
+\providecommand\@dotsep{5}
+\def\listtodoname{List of Todos}
+\def\listoftodos{\@starttoc{tdo}\listtodoname}
+\makeatother
+
+
+
